@@ -1,10 +1,22 @@
-const GITHUB_USER = "YOUR_GITHUB_USERNAME";
-const GITHUB_REPO = "YOUR_REPOSITORY_NAME";
-
-const TEST_PAT = "YOUR_GITHUB_PAT";
+const GITHUB_USER = "oliver-krauss";
+const GITHUB_REPO = "githubreviews-testrepo";
 
 const popup = document.getElementById("annotation-popup");
 const submitBtn = document.getElementById("annotation-submit");
+
+let TEST_PAT = ""
+fetch("../secrets/config.json")
+    .then(res => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+    })
+    .then(cfg => {
+        console.log("Config loaded:", cfg);
+        TEST_PAT = cfg.testPat
+    })
+    .catch(err => {
+        console.error("Failed to load config:", err);
+    });
 
 let lastSelection = null;
 let anchorInfo = {};
