@@ -95,3 +95,27 @@ blockquote {
 #annotation-popup button {
     margin-top: 6px;
 }
+
+/* Right-side comment panel */
+#comment-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 100vh;
+    background: #f6f8fa;
+    border-left: 1px solid #d1d5da;
+    padding: 15px;
+    overflow-y: auto;
+    box-shadow: -2px 0 6px rgba(0,0,0,0.1);
+    z-index: 9998;
+    display: none;
+}
+
+#comment-panel.open {
+    display: block;
+}
+
+/*body.with-panel {*/
+/*    margin-right: 320px;*/
+/*}*/
