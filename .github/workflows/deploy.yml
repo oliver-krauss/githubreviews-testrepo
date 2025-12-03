@@ -17,10 +17,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     
     - name: Checkout the implementation guide
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Extract branch name
       run: |
