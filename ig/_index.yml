@@ -1,0 +1,7 @@
+- name: TestIG
+- version: 0.1.0
+- description: A minimal test FHIR&reg; R5 Implementation Guide for testing GitHub reviews.
+- last_published: 03.12.2025
+- branch: main
+- type: draft
+

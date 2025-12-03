@@ -1,0 +1,19 @@
+{
+  "url" : "http://example.org/fhir/TestIG/ImplementationGuide/TestIG",
+  "name" : "TestIGImplementationGuide",
+  "title" : "Test Implementation Guide",
+  "description" : "A minimal test Implementation Guide for testing GitHub reviews.",
+  "status" : "active",
+  "package-id" : "TestIG",
+  "ig-ver" : "0.1.0",
+  "date" : "Wed, 03 Dec, 2025 21:20:51 +0000",
+  "dateISO8601" : "2025-12-03T21:20:51+00:00",
+  "errs" : 1,
+  "warnings" : 5,
+  "hints" : 15,
+  "suppressed-hints" : 0,
+  "suppressed-warnings" : 0,
+  "version" : "5.0.0",
+  "tool" : "5.0.0 (3)",
+  "maxMemory" : 997117952
+}

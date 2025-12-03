@@ -1,0 +1,34 @@
+TestIGImplementationGuide : Validation Results
+=========================================
+
+err = 1, warn = 5, info = 15
+IG Publisher Version: 2.0.27
+Generated Wed Dec 03 21:21:43 UTC 2025. FHIR version 5.0.0 for TestIG#0.1.0 (canonical = http://example.org/fhir/TestIG)
+ Build Errors : 1 / 3 / 0
+ /home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG : 0 / 0 / 16
+ /home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/StructureDefinition-test-auditevent-core : 0 / 2 / 1
+</table>
+== n/a ==
+ERROR: ImplementationGuide.definition.parameter[24].value: Supressed messages file not found
+WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+== fsh-generated/resources/ImplementationGuide-TestIG.json ==
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[4].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[5].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[6].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[7].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[8].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[9].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[10].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[11].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[12].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[13].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[14].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[15].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[16].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[17].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/TestIG: ImplementationGuide.definition.parameter[23].code: Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+== fsh-generated/resources/StructureDefinition-test-auditevent-core.json ==
+WARNING: StructureDefinition/test-auditevent-core: StructureDefinition.snapshot.element[30].binding: The definition for the element 'AuditEvent.agent.type' binds to the value set 'http://hl7.org/fhir/ValueSet/participation-role-type|5.0.0' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition.where(url = 'http://example.org/fhir/TestIG/StructureDefinition/test-auditevent-core'): The Implementation Guide contains no examples for this profile

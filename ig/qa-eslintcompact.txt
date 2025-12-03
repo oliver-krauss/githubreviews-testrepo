@@ -1,0 +1,27 @@
+TestIGImplementationGuide
+=========================================
+
+Generic: line 0, col 0, Error - Supressed messages file not found (NOTFOUND)
+Generic: line 0, col 0, Warning - The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide (NOTFOUND)
+Generic: line 0, col 0, Warning - An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide (NOTFOUND)
+Generic: line 0, col 0, Warning - The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide (NOTFOUND)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 2939, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3054, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3165, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3278, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3387, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3500, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3611, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3723, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3836, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 3943, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 4053, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 4163, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 4280, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 4389, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/ImplementationGuide-TestIG.json: line 1, col 5067, Info - Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0 (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/StructureDefinition-test-auditevent-core.json: line 0, col 0, Warning - The definition for the element 'AuditEvent.agent.type' binds to the value set 'http://hl7.org/fhir/ValueSet/participation-role-type|5.0.0' which is experimental, but this structure is not labeled as experimental (BUSINESSRULE)
+/home/runner/work/githubreviews-testrepo/githubreviews-testrepo/fhir-ig/fsh-generated/resources/StructureDefinition-test-auditevent-core.json: line 0, col 0, Warning - The Implementation Guide contains no examples for this profile (BUSINESSRULE)
+
+err = 1, warn = 5, info = 15
+IG Publisher Version: 2.0.27

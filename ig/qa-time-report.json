@@ -1,0 +1,186 @@
+{
+  "date" : "Wed, 03 Dec, 2025 21:20:51 +0000",
+  "doco" : "For each file: start is seconds after start activity occurred. Length = milliseconds activity took",
+  "files" : [
+    {
+      "name" : "/fsh-generated/resources/ImplementationGuide-TestIG.json",
+      "size" : 1805,
+      "processes" : [
+        {
+          "activity" : "load",
+          "start" : 27,
+          "length" : 14
+        },
+        {
+          "activity" : "checkR4R4B",
+          "start" : 28,
+          "length" : 6
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 28,
+          "length" : 434
+        },
+        {
+          "activity" : "validate",
+          "start" : 30,
+          "length" : 2156
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 32,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 33,
+          "length" : 49
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 41
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 49,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "fsh-generated/resources/StructureDefinition-test-auditevent-core.json",
+      "size" : 1447,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 27,
+          "length" : 19
+        },
+        {
+          "activity" : "load",
+          "start" : 27,
+          "length" : 10
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 27,
+          "length" : 84
+        },
+        {
+          "activity" : "load-configure",
+          "start" : 28,
+          "length" : 1
+        },
+        {
+          "activity" : "loadDepInfo",
+          "start" : 28,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 28,
+          "length" : 1034
+        },
+        {
+          "activity" : "validate",
+          "start" : 29,
+          "length" : 1073
+        },
+        {
+          "activity" : "checkConformanceResources",
+          "start" : 32,
+          "length" : 1
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 32,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 33,
+          "length" : 237
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 1265
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 3251
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 49,
+          "length" : 11
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 52,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 52,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "/input/includes/menu.xml",
+      "size" : 597,
+      "processes" : [
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "/input/includes/fragment-pagebegin.html",
+      "size" : 5303,
+      "processes" : [
+        {
+          "activity" : "scan",
+          "start" : 28,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "/fsh-generated/includes/fsh-link-references.md",
+      "size" : 67
+    },
+    {
+      "name" : "/input/pagecontent/overview.md",
+      "size" : 906
+    },
+    {
+      "name" : "/input/pagecontent/index.md",
+      "size" : 773,
+      "processes" : [
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "/template/config",
+      "size" : 0
+    },
+    {
+      "name" : "/template/config/_config.yml",
+      "size" : 140
+    },
+    {
+      "name" : "/temp/pages/_includes/artifacts.xml",
+      "size" : 1423
+    }
+  ]
+}

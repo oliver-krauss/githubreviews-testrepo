@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Reviews Test Repository</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>GitHub Reviews Test Repository</h1>
+
+<div class="content">
+    <p>Welcome to the GitHub Reviews test repository. This site is designed to test and demonstrate a review tool for GitHub Pages.</p>
+
+    <div class="info-box">
+        <strong>Purpose:</strong> This repository serves as a testing ground for implementing a review tool that allows users to review content directly on deployed GitHub Pages, with reviews stored in issues or pull requests.
+    </div>
+</div>
+
+<div class="nav-links">
+    <h2>Available Pages</h2>
+    <ul>
+        <li><a href="page1.html">📄 Page 1 - Sample Documentation</a></li>
+        <li><a href="page2.html">📄 Page 2 - Example Content</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h2>About This Project</h2>
+    <p>This test repository contains multiple pages to help validate the review functionality. Each page contains different types of content that can be reviewed.</p>
+
+    <h3>Future Plans</h3>
+    <ul>
+        <li>Integrate review tool functionality</li>
+        <li>Generate HTML from code</li>
+        <li>Add more complex sample pages</li>
+        <li>Test different content types and layouts</li>
+    </ul>
+</div>
+
+<div id="annotation-popup">
+    <label>
+        <textarea placeholder="Write a comment..."></textarea>
+    </label>
+    <button id="annotation-submit">Submit</button>
+</div>
+
+<aside id="comment-panel" class="comment-panel">
+    <header class="comment-panel-header">
+        <h2>Comments</h2>
+    </header>
+
+    <ul id="comment-list" class="comment-list">
+    </ul>
+</aside>
+
+<button onclick="toggleCommentPanel()">💬 Comments</button>
+
+<script src="script/script.js"></script>
+</body>
+</html>

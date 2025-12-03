@@ -1,0 +1,16 @@
+[
+  {
+    "id" : "TestIG",
+    "type" : "ImplementationGuide",
+    "url" : "http://example.org/fhir/TestIG/ImplementationGuide/TestIG",
+    "version" : "0.1.0",
+    "name" : "TestIGImplementationGuide"
+  },
+  {
+    "id" : "test-auditevent-core",
+    "type" : "StructureDefinition",
+    "url" : "http://example.org/fhir/TestIG/StructureDefinition/test-auditevent-core",
+    "version" : "0.1.0",
+    "name" : "TestAuditEventCore"
+  }
+]
