@@ -1,0 +1,17 @@
+# SUSHI Configuration for TestIG Implementation Guide
+
+id: TestIG
+canonical: http://example.org/fhir/TestIG
+version: 0.1.0
+name: TestIGImplementationGuide
+title: Test Implementation Guide
+status: active
+publisher: Test Publisher
+description: A minimal test Implementation Guide for testing GitHub reviews.
+license: CC0-1.0
+fhirVersion: 5.0.0
+parameters:
+  show-inherited-invariants: false
+copyrightYear: 2024
+releaseLabel: draft
+

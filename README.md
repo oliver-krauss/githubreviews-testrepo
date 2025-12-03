@@ -13,6 +13,15 @@ The test site is available at GitHub Pages (once enabled in repository settings)
 - **Page 1**: [docs/page1.html](docs/page1.html) - Sample Documentation
 - **Page 2**: [docs/page2.html](docs/page2.html) - Example Content
 
+## FHIR Implementation Guide
+
+This repository also contains a minimal FHIR Implementation Guide located in the [`fhir-ig/`](fhir-ig/) folder. The IG includes:
+- FSH profile definitions for AuditEvent
+- Markdown documentation pages
+- GitHub Actions workflow for building and deploying to the `pages` branch
+
+The IG is built using SUSHI and the FHIR IG Publisher, and deployed to GitHub Pages on the `pages` branch when changes are pushed to `main`.
+
 ## Purpose
 
 This repository contains multiple pages with different types of content to help validate the review functionality:

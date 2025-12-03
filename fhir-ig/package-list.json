@@ -1,0 +1,16 @@
+{
+  "package-id": "TestIG",
+  "title": "Test Implementation Guide",
+  "canonical": "http://example.org/fhir/TestIG",
+  "introduction": "A minimal test IG for testing GitHub reviews.",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Draft",
+      "path": "http://example.org/fhir/TestIG",
+      "status": "ci-build",
+      "current": true
+    }
+  ]
+}
+
