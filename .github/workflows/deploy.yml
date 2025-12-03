@@ -92,11 +92,11 @@ jobs:
       run: |
         mkdir -p combined-output
         # Copy IG output to subfolder
-        cp -r ./fhir-ig/output ./combined-output/ig
+        cp -r ./fhir-ig/output ./combined-output/fhir-ig
         # Copy docs folder to root
         cp -r ./docs ./combined-output/docs
-        # Convert README.md to HTML and place in root
-        pandoc README.md -f markdown -t html -s -o ./combined-output/README.html --metadata title="README"
+        # Convert README.md to HTML and place in root as index.html
+        pandoc README.md -f markdown -t html -s -o ./combined-output/index.html --metadata title="README"
     
     - name: Setup Pages
       uses: actions/configure-pages@v5
