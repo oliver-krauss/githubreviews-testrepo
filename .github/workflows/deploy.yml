@@ -2,10 +2,8 @@
 # 
 # To enable GitHub Pages:
 # 1. Go to repository Settings > Pages
-# 2. Select "Deploy from a branch"
-# 3. Choose the "pages" branch
-# 4. Select "/" (root) as the folder
-# 5. Save
+# 2. Select "GitHub Actions" as the source
+# 3. Save
 
 name: PublishIG
 
@@ -15,16 +13,19 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+      pages: write
+      id-token: write
     steps:
     
     - name: Checkout the implementation guide
       uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Extract branch name
       run: |
@@ -97,16 +98,16 @@ jobs:
         # Convert README.md to HTML and place in root
         pandoc README.md -f markdown -t html -s -o ./combined-output/README.html --metadata title="README"
     
-    - name: Deploy to GitHub Pages
-      if: success()
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: pages
-        publish_dir: ./combined-output
-        # This will create/update the 'pages' branch with:
-        # - IG in /ig/ subfolder
-        # - docs/ folder at root
-        # - README.html at root
-        # GitHub Pages will serve from this branch once configured in Settings
+        path: './combined-output'
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+
 
