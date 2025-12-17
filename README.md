@@ -9,7 +9,7 @@ This repository serves as a testing ground for implementing a review tool that a
 ## GitHub Pages
 
 The test site is available at GitHub Pages (once enabled in repository settings):
-- **Main Page**: [docs/index.html](docs/index_backup.html)
+- **Main Page**: [docs/index.html](docs/index.html)
 - **Page 1**: [docs/page1.html](docs/page1.html) - Sample Documentation
 - **Page 2**: [docs/page2.html](docs/page2.html) - Example Content
 
