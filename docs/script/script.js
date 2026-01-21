@@ -1,4 +1,4 @@
-import TextHighlighter from "https://esm.sh/@perlego/text-highlighter";
+//import TextHighlighter from "https://esm.sh/@perlego/text-highlighter";
 
 const GITHUB_USER = "oliver-krauss";
 const GITHUB_REPO = "githubreviews-testrepo";
@@ -45,8 +45,6 @@ window.setTestPat = function() {
     }
 };
 
-const marked = new TextHighlighter(document.body);
-
 let lastSelection = null;
 let anchorInfo = {};
 
@@ -77,7 +75,6 @@ document.addEventListener("mouseup", () => {
     popup.style.display = "block";
 
     console.log("fun");
-    marked.highlighter(text);
 });
 
 submitBtn.onclick = async () => {
@@ -129,9 +126,9 @@ submitBtn.onclick = async () => {
     console.log("data.content:" + data.content);
 
     const match = data.items[0];
-
-    console.log("this one:" + data.items);
-    console.log("annnnnd this one:" + match);
+    console.log(match.path);
+    const stuff = await fetchGithubFileContent(match.path);
+    console.log(stuff);
 
     //let repoSnippet = "";
 
@@ -174,29 +171,65 @@ submitBtn.onclick = async () => {
 
     let responseText = "Comment created in GitHub Issues!";
     try {
-        const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/issues`, {
-            method: "POST",
-            headers: {
-                "Authorization": `token ${TEST_PAT}`,
-                "Accept": "application/vnd.github+json"
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (!res.ok) {
-            responseText = "Comment couldn't be created!\n" + res.statusText;
-        }
+        // const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/issues`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Authorization": `token ${TEST_PAT}`,
+        //         "Accept": "application/vnd.github+json"
+        //     },
+        //     body: JSON.stringify(payload)
+        // });
+        //
+        // if (!res.ok) {
+        //     responseText = "Comment couldn't be created!\n" + res.statusText;
+        // }
 
     } finally {
         addToCommentList(body)
         popup.style.display = "none";
         document.querySelector("#annotation-popup textarea").value = "";
-        marked.highlighter(text);
         alert(responseText);
     }
 };
 
+async function fetchGithubFileContent(path, branch = "main") {
+    if (!path) return null;
+    const apiPath = path.split('/').map(encodeURIComponent).join('/');
+    const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${apiPath}?ref=${encodeURIComponent(branch)}`;
+
+    const res = await fetch(url, {
+        headers: {
+            "Accept": "application/vnd.github.v3.raw",
+            "Authorization": TEST_PAT ? `token ${TEST_PAT}` : undefined
+        }
+    });
+
+    if (!res.ok) {
+        try {
+            const json = await res.json();
+            if (json && json.content) {
+                const base64 = json.content.replace(/\n/g, "");
+                try {
+                    return decodeURIComponent(escape(atob(base64)));
+                } catch (e) {
+                    console.log("fallback decoding");
+                    return atob(base64);
+                }
+            } else {
+                console.error("GitHub contents API error:", json);
+                return null;
+            }
+        } catch (e) {
+            console.error("Fetch failed:", res.status, await res.text());
+            return null;
+        }
+    }
+
+    return await res.text();
+}
+
 function toggleCommentPanel() {
+    console.log("toggleCommentPanel");
     const panel = document.getElementById("comment-panel");
     const body = document.body;
 
