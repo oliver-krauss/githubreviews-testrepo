@@ -1,29 +1,15 @@
+import TextHighlighter from "https://esm.sh/@perlego/text-highlighter";
+
 const GITHUB_USER = "oliver-krauss";
 const GITHUB_REPO = "githubreviews-testrepo";
 
 const popup = document.getElementById("annotation-popup");
 const submitBtn = document.getElementById("annotation-submit");
 const commentList = document.getElementById("comment-list");
-const appendListElement = document.createElement("li");
 
+let text = "";
 let TEST_PAT = "";
 
-/* Original file-based PAT loader (kept for reference and commented out):
-fetch("../secrets/config.json")
-    .then(res => {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-    })
-    .then(cfg => {
-        console.log("Config loaded:", cfg);
-        TEST_PAT = cfg.testPat
-    })
-    .catch(err => {
-        console.error("Failed to load config:", err);
-    });
-*/
-
-// Active behavior: prompt the user for a PAT once per browser session and store it in sessionStorage.
 (function initTestPat(){
     try {
         const stored = sessionStorage.getItem('testPat');
@@ -46,7 +32,6 @@ fetch("../secrets/config.json")
     }
 })();
 
-// Console helper to set/clear the PAT during the active session.
 window.setTestPat = function() {
     const input = window.prompt("Enter new GitHub PAT (stored in sessionStorage for this session). Leave blank to clear:");
     if (input && input.trim()) {
@@ -60,15 +45,17 @@ window.setTestPat = function() {
     }
 };
 
+const marked = new TextHighlighter(document.body);
+
 let lastSelection = null;
 let anchorInfo = {};
 
 document.addEventListener("mouseup", () => {
-    popup.addEventListener("click", (event) => {
+    popup.addEventListener("mouseup", (event) => {
         event.stopPropagation();
     });
     const sel = window.getSelection();
-    const text = sel.toString().trim();
+    text = sel.toString();
 
     if (!text) {
         popup.style.display = "none";
@@ -88,6 +75,9 @@ document.addEventListener("mouseup", () => {
     popup.style.left = rect.x + "px";
     popup.style.top = rect.y + window.scrollY + rect.height + "px";
     popup.style.display = "block";
+
+    console.log("fun");
+    marked.highlighter(text);
 });
 
 submitBtn.onclick = async () => {
@@ -97,19 +87,28 @@ submitBtn.onclick = async () => {
         return;
     }
 
-    // Require the user-provided PAT for creating issues
     if (!TEST_PAT) {
         alert('No Personal Access Token (PAT) set. Use window.setTestPat() in the console to set one for this session.');
         return;
     }
+    console.log(lastSelection);
 
-    const query = `"${lastSelection}" repo:${GITHUB_USER}/${GITHUB_REPO}`;
+    const fileInput = "index.html";
+    let fileQualifier = "";
+    if (fileInput && fileInput.trim()) {
+        const f = fileInput.trim();
+        fileQualifier = f.includes("/") ? ` path:${f}` : ` filename:${f}`;
+    }
+    console.log(fileQualifier);
+
+    const query = `"${lastSelection}" repo:${GITHUB_USER}/${GITHUB_REPO}${fileQualifier}`;
 
     const url = `https://api.github.com/search/code?q=${encodeURIComponent(query)}`;
+    console.log(url);
 
     const response = await fetch(url, {
         headers: {
-            "Accept": "application/vnd.github.v3.text-match+json",
+            "Accept": 'application/vnd.github.v3+json',
             "Authorization": `token ${TEST_PAT}`
         }
     });
@@ -127,14 +126,15 @@ submitBtn.onclick = async () => {
         return null;
     }
 
-    // For now, just take the first match
+    console.log("data.content:" + data.content);
+
     const match = data.items[0];
 
-    console.log(data.items);
-    console.log(match);
+    console.log("this one:" + data.items);
+    console.log("annnnnd this one:" + match);
 
     //let repoSnippet = "";
-    //
+
     // if (match.text_matches && match.text_matches.length > 0) {
     //     repoSnippet = match.text_matches[0].fragment;
     // } else {
@@ -188,12 +188,10 @@ submitBtn.onclick = async () => {
         }
 
     } finally {
+        addToCommentList(body)
         popup.style.display = "none";
         document.querySelector("#annotation-popup textarea").value = "";
-        appendListElement.textContent = body;
-        console.log(appendListElement.textContent);
-        commentList.appendChild(appendListElement);
-
+        marked.highlighter(text);
         alert(responseText);
     }
 };
@@ -204,4 +202,20 @@ function toggleCommentPanel() {
 
     panel.classList.toggle("open");
     body.classList.toggle("with-panel");
+}
+
+function addToCommentList(commentText) {
+    const appendListElement = document.createElement("li");
+    const addDivElement = document.createElement("div");
+    const textElement = document.createElement("p");
+    const buttonElement = document.createElement("button");
+    textElement.textContent = commentText;
+    buttonElement.textContent = "delete"
+    buttonElement.onclick = function() {
+        commentList.removeChild(appendListElement);
+    };
+    addDivElement.appendChild(textElement);
+    addDivElement.appendChild(buttonElement);
+    appendListElement.appendChild(addDivElement);
+    commentList.appendChild(appendListElement);
 }

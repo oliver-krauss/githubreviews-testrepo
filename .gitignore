@@ -1,1 +1,5 @@
 /docs/secrets
+/docs/node_modules/
+/docs/dist/
+/docs/package-lock.json
+/package-lock.json
