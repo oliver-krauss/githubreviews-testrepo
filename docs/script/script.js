@@ -127,41 +127,40 @@ submitBtn.onclick = async () => {
 
     const match = data.items[0];
     console.log(match.path);
-    const stuff = await fetchGithubFileContent(match.path);
-    console.log(stuff);
+    const foundFileContent = await fetchGithubFileContent(match.path);
+    console.log(foundFileContent);
 
-    //let repoSnippet = "";
+    const repoSnippet = lastSelection;
 
-    // if (match.text_matches && match.text_matches.length > 0) {
-    //     repoSnippet = match.text_matches[0].fragment;
-    // } else {
-    //     repoSnippet = anchorInfo.selectedText;
-    // }
-    //
-    // const issueBody = `
-    // ### Inline Annotation
-    //
-    // **Page:** ${anchorInfo.page}
-    // **Repo file:** \`${match}\`
-    // **GitHub link:** ${match.html_url}
-    //
-    // **Selected Text (on page):**
-    // > ${anchorInfo.selectedText}
-    //
-    // **Matching Code/Text in Repo:**
-    // \`\`\`
-    // ${repoSnippet}
-    // \`\`\`
-    //
-    // **Comment:**
-    // ${body}
-    // `.trim();
+    let startLine = null;
+    let endLine = null;
+    if (foundFileContent && repoSnippet) {
+        const startIndex = foundFileContent.indexOf(repoSnippet);
+        if (startIndex !== -1) {
+            const before = foundFileContent.slice(0, startIndex);
+            startLine = before.split('\n').length; // 1-based line number
+            const afterIndex = startIndex + repoSnippet.length;
+            endLine = foundFileContent.slice(0, afterIndex).split('\n').length;
+            console.log(`Found snippet in fetched file at lines ${startLine}..${endLine}`);
+        } else {
+            console.log('Snippet not found literally in fetched file content.');
+        }
+    }
+
+    let codeUrl = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/blob/main/${encodeURIComponent(match.path)}`;
+    if (startLine !== null) {
+        if (endLine !== null && endLine !== startLine) {
+            codeUrl = `${codeUrl}#L${startLine}-L${endLine}`;
+        } else {
+            codeUrl = `${codeUrl}#L${startLine}`;
+        }
+    }
 
     const issueBody =
         `### Inline Annotation\n` +
         `**Page:** ${anchorInfo.page}\n` +
         `**Selected Text:** "${anchorInfo.selectedText}"\n` +
-        `**Selection Offsets:** start=${anchorInfo.startOffset}, end=${anchorInfo.endOffset}\n\n` +
+        (codeUrl ? `**Direct link:** ${codeUrl}\n\n` : "") +
         `**Comment:**\n${body}`;
 
     const payload = {
@@ -171,18 +170,18 @@ submitBtn.onclick = async () => {
 
     let responseText = "Comment created in GitHub Issues!";
     try {
-        // const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/issues`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Authorization": `token ${TEST_PAT}`,
-        //         "Accept": "application/vnd.github+json"
-        //     },
-        //     body: JSON.stringify(payload)
-        // });
-        //
-        // if (!res.ok) {
-        //     responseText = "Comment couldn't be created!\n" + res.statusText;
-        // }
+        const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/issues`, {
+            method: "POST",
+            headers: {
+                "Authorization": `token ${TEST_PAT}`,
+                "Accept": "application/vnd.github+json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+            responseText = "Comment couldn't be created!\n" + res.statusText;
+        }
 
     } finally {
         addToCommentList(body)
