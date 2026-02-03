@@ -133,33 +133,6 @@ submitBtn.onclick = async () => {
     console.log("this one:" + data.items);
     console.log("annnnnd this one:" + match);
 
-    //let repoSnippet = "";
-
-    // if (match.text_matches && match.text_matches.length > 0) {
-    //     repoSnippet = match.text_matches[0].fragment;
-    // } else {
-    //     repoSnippet = anchorInfo.selectedText;
-    // }
-    //
-    // const issueBody = `
-    // ### Inline Annotation
-    //
-    // **Page:** ${anchorInfo.page}
-    // **Repo file:** \`${match}\`
-    // **GitHub link:** ${match.html_url}
-    //
-    // **Selected Text (on page):**
-    // > ${anchorInfo.selectedText}
-    //
-    // **Matching Code/Text in Repo:**
-    // \`\`\`
-    // ${repoSnippet}
-    // \`\`\`
-    //
-    // **Comment:**
-    // ${body}
-    // `.trim();
-
     const issueBody =
         `### Inline Annotation\n` +
         `**Page:** ${anchorInfo.page}\n` +
